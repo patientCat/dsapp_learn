@@ -2,7 +2,7 @@
 //design by >^.^<
 //@date    2018-09-12 17:27:20
 
-#include "Fib.cc" 
+#include "Fib.h" 
 #include <initializer_list> 
 #include <algorithm> 
 #include <functional> 
