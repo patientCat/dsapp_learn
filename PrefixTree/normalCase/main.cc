@@ -51,6 +51,11 @@ void test()
         q->pop();
     }
     cout << endl;
+
+    line();
+    cout << "longestPrefixOf" << endl;
+    cout << trieTree.longestPrefixOf("helloworld") << endl;
+    cout << trieTree.longestPrefixOf("forward") << endl;
 }
 int main()
 {

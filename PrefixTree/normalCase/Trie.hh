@@ -50,7 +50,7 @@ public:
         return node->value;
     }
 
-    // 
+    // 插入 
     void put(const string & key, const Value & val)
     {
         if(key.empty()) return;
@@ -64,6 +64,7 @@ public:
         return q;
     }
 
+    // 找到所有以pre为前缀的keys
     queue<string> *keysWithPrefix(string pre)
     {
         queue<string> * q = new queue<string>;
@@ -71,6 +72,7 @@ public:
         return q;
     }
 
+    // 找到所有匹配pat的keys , "."代表任意字符
     queue<string> *keysThatMatch(string pat)
     {
         queue<string> * q = new queue<string>;
@@ -78,6 +80,7 @@ public:
         return q;
     }
 
+    // 找到s的最长前缀key
     string longestPrefixOf(string s)
     {
         int length = search(_root, s, 0, 0);
@@ -123,13 +126,13 @@ private:
                 collect(x->links[c - 'a'], pre + c, pat, q);
     }
 
-    int search(Node *x, string s, int d, int length)
+    int search(Node *x, const string &s, int d, int length)
     {
         if(nullptr == x)    return length;
         if(x->value)    length = d;
         if(d == s.size()) return length;
         char currentChar = s[d];
-        return search(x->links[currentChar - 'a'], d + 1, length);
+        return search(x->links[currentChar - 'a'], s, d + 1, length);
     }
 }; 
 #endif // Trie.hh
